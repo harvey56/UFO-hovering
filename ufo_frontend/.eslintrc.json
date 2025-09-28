@@ -1,0 +1,53 @@
+{
+    "env": {
+      "browser": true,
+      "es2021": true
+    },
+    "extends": [
+      "eslint:recommended",
+      "plugin:react/recommended",
+      "plugin:react-hooks/recommended",
+      "plugin:jsx-a11y/recommended",
+      "plugin:@typescript-eslint/recommended",
+      "plugin:react/jsx-runtime",
+      "plugin:prettier/recommended"
+    ],
+    "parser": "@typescript-eslint/parser",
+    "parserOptions": {
+      "ecmaVersion": 12,
+      "sourceType": "module"
+    },
+    "plugins": ["react", "react-hooks", "jsx-a11y", "@typescript-eslint"],
+    "rules": {
+      "no-var": "error",
+		"eqeqeq": ["error", "always"],
+		"indent": ["warn", "tab", { "SwitchCase": 1, "offsetTernaryExpressions": true }],
+		"linebreak-style": ["error", "unix"],
+		"quotes": ["error", "single"],
+		"prefer-const": [
+			"error",
+			{
+				"destructuring": "any",
+				"ignoreReadBeforeAssign": false
+			}
+		],
+		"semi": ["warn", "never"],
+		"no-unused-vars": "off",
+		"@typescript-eslint/no-unused-vars": [
+			"warn",
+			{
+				"args": "none",
+				"argsIgnorePattern": "^_"
+			}
+		],
+		"@typescript-eslint/consistent-type-imports": [
+			"error",
+			{
+				"prefer": "type-imports"
+			}
+		],
+		"@typescript-eslint/no-explicit-any": "off",
+		"react/jsx-key": ["warn", {"checkFragmentShorthand": true}],
+		"prettier/prettier": ["warn", {"trailingComma": "es5"}]
+    }
+  }

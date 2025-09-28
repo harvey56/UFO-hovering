@@ -1,0 +1,43 @@
+version: "3"
+services:
+  ufo_frontend:
+    build:
+      context: ./ufo_frontend
+    dns:
+      - 8.8.8.8
+      - 8.8.4.4
+    ports:
+      - "5173:80" # Map host port 5173 to container port 80
+    depends_on:
+      - ufo_subscriber
+
+  redis:
+    image: redis
+    ports:
+      - "6379:6379"
+
+  ufo_publisher:
+    container_name: ufo_publisher
+    build:
+      context: ./ufo_publisher_ts
+    dns:
+      - 8.8.8.8
+      - 8.8.4.4
+    depends_on:
+      - redis
+    environment:
+      - REDIS_HOST=redis
+
+  ufo_subscriber:
+    container_name: ufo_subscriber
+    build:
+      context: ./ufo_subscriber_ts
+    dns:
+      - 8.8.8.8
+      - 8.8.4.4
+    depends_on:
+      - redis
+    ports:
+      - "8080:8080"
+    environment:
+      - REDIS_HOST=redis

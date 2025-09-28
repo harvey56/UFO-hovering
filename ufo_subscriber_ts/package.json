@@ -1,0 +1,21 @@
+{
+  "name": "websocket-redis-server",
+  "version": "1.0.0",
+  "description": "A WebSocket server that relays messages from a Redis channel.",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc",
+    "dev": "ts-node subscriber.ts"
+  },
+  "dependencies": {
+    "ioredis": "^5.8.0",
+    "ws": "^8.18.3"
+  },
+  "devDependencies": {
+    "@types/ioredis": "^4.28.10",
+    "@types/node": "^22.18.6",
+    "@types/ws": "^8.18.1",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.9.2"
+  }
+}
